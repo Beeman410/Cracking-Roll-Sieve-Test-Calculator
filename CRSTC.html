@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cracking Roll Sieve Test Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cracking Roll Sieve Test Calculator</h2>
+        <h3>By: G. Heath</h3>
+        <input type="number" id="weight1" placeholder="Enter Weight 1">
+        <input type="number" id="weight2" placeholder="Enter Weight 2">
+        <input type="number" id="weight3" placeholder="Enter Weight 3">
+        <button onclick="calculatePercentages()">Calculate Percentages</button>
+        <div class="result">
+            <p id="percentage1"></p>
+            <p id="percentage2"></p>
+            <p id="percentage3"></p>
+        </div>
+    </div>
+    <script>
+        function calculatePercentages() {
+            var weight1 = parseFloat(document.getElementById("weight1").value) || 0;
+            var weight2 = parseFloat(document.getElementById("weight2").value) || 0;
+            var weight3 = parseFloat(document.getElementById("weight3").value) || 0;
+            var totalWeight = weight1 + weight2 + weight3;
+
+            if (totalWeight > 0) {
+                var percentage1 = ((weight1 / totalWeight) * 100).toFixed(2);
+                var percentage2 = ((weight2 / totalWeight) * 100).toFixed(2);
+                var percentage3 = ((weight3 / totalWeight) * 100).toFixed(2);
+
+                document.getElementById("percentage1").innerText = "Weight 1: " + percentage1 + "%";
+                document.getElementById("percentage2").innerText = "Weight 2: " + percentage2 + "%";
+                document.getElementById("percentage3").innerText = "Weight 3: " + percentage3 + "%";
+            } else {
+                document.getElementById("percentage1").innerText = "Please enter valid numbers.";
+                document.getElementById("percentage2").innerText = "";
+                document.getElementById("percentage3").innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>
